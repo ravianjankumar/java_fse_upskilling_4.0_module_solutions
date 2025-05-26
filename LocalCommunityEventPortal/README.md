@@ -106,9 +106,6 @@
 
 This project is for educational purposes only.
 
----
-
-Feel free to open issues or contribute improvements!
 
 ---
 
