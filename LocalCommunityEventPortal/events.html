@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Events - Local Community Portal</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header id="mainHeader">
+    <h1>Upcoming Events</h1>
+</header>
+
+<nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="events.html" aria-current="page">Events</a>
+    <a href="help.html">Help</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="register.html">Register</a>
+</nav>
+
+<main style="max-width: 900px; margin: 2rem auto; padding: 1rem;">
+
+    <section class="filters" style="margin-bottom: 1.5rem;">
+        <label for="filterCategory"><strong>Filter by Category:</strong></label>
+        <select id="filterCategory" style="margin-left: 0.5rem; padding: 5px;">
+            <option value="all">All</option>
+            <option value="Music">Music</option>
+            <option value="Education">Education</option>
+            <option value="Environment">Environment</option>
+            <option value="Workshop">Workshop</option>
+        </select>
+
+        <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Search events..." 
+            style="margin-left: 1rem; padding: 5px; width: 220px;"
+            aria-label="Search events by name"
+        />
+    </section>
+
+    <section id="eventsContainer" class="flex-container" style="gap: 1rem; flex-wrap: wrap;">
+        <!-- Event cards will be dynamically inserted here -->
+    </section>
+
+</main>
+
+<script src="main.js"></script>
+</body>
+</html>

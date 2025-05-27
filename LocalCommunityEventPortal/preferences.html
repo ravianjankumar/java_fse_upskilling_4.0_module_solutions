@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+
+    <meta charset="UTF-8">
+    <title>User Preferences</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .container {
+            width: 400px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+        }
+
+        select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 1em;
+        }
+
+        #status {
+            margin-top: 15px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+
+    <script>
+        function savePreference() {
+            const selected = document.getElementById("eventType").value;
+            if (selected) {
+                localStorage.setItem("preferredEvent", selected);
+                document.getElementById("status").textContent = `Saved: ${selected}`;
+            }
+        }
+
+        function restorePreference() {
+            const saved = localStorage.getItem("preferredEvent");
+            if (saved) {
+                document.getElementById("eventType").value = saved;
+                document.getElementById("status").textContent = `Loaded: ${saved}`;
+            }
+        }
+
+        function clearPreferences() {
+            localStorage.clear();
+            sessionStorage.clear();
+            document.getElementById("eventType").value = "";
+            document.getElementById("status").textContent = "Preferences cleared.";
+        }
+
+        window.onload = restorePreference;
+    </script>
+</head>
+<body>
+
+
+    <nav>
+        <a href="index.html">Home</a> |
+        <a href="preferences.html">Preferences</a>
+    </nav>
+
+
+    <main class="container">
+        <h2>Choose Your Preferred Event Type</h2>
+
+        <select id="eventType" onchange="savePreference()">
+            <option value="">-- Select Event --</option>
+            <option value="cleanup">Community Cleanup</option>
+            <option value="music">Music Night</option>
+            <option value="workshop">Workshop</option>
+        </select>
+
+        <button onclick="clearPreferences()">Clear Preferences</button>
+
+        <div id="status"></div>
+    </main>
+
+
+    <footer>
+        <p style="text-align: center;">&copy; 2025 Local City Council</p>
+    </footer>
+<script src="js/main.js"></script>
+</body>
+</html>

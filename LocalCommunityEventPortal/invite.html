@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+
+    <meta charset="UTF-8">
+    <title>Event Video Invite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #statusMessage {
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        video {
+            display: block;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+    </style>
+
+    <script>
+        function showVideoReadyMessage() {
+            document.getElementById("statusMessage").textContent = "🎥 Video ready to play!";
+        }
+
+        window.onbeforeunload = function () {
+            return "You have unsaved changes. Are you sure you want to leave?";
+        };
+    </script>
+</head>
+
+<body>
+
+
+    <nav>
+        <a href="index.html">Home</a> |
+        <a href="invite.html">Video Invite</a>
+    </nav>
+
+
+    <main>
+        <h1>You're Invited!</h1>
+        <p>Watch this short video to learn more about our community events.</p>
+
+        <video controls oncanplay="showVideoReadyMessage()">
+            <source src="assets/videos/event_invite.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div id="statusMessage"></div>
+    </main>
+
+
+    <footer>
+        <p>&copy; 2025 Local City Council</p>
+    </footer>
+<script src="js/main.js"></script>
+
+</body>
+</html>

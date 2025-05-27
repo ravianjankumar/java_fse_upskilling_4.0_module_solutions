@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Debug Practice</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 150px;
+            background-color: #ffcccb;
+            /* Bug: misspelled property */
+            margn: 20px;
+            text-align: center;
+            line-height: 150px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        #output {
+            margin-top: 10px;
+            color: green;
+            font-style: italic;
+        }
+    </style>
+    <script>
+        function triggerBug() {
+            const user = document.getElementById("username").value;
+            //console.log("User entered:", user);
+            // Bug: undefined variable
+            console.log(userAge); // ReferenceError
+            document.getElementById("output").textContent = "Hello " + user + "!";
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <h1>DevTools Debugging Practice</h1>
+
+    <div class="box">This box should be centered...</div>
+
+    <form onsubmit="triggerBug(); return false;">
+        <label>Username:
+            <input type="text" id="username" placeholder="Type your name" required>
+        </label>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="output"></div>
+<script src="js/main.js"></script>
+</body>
+</html>
